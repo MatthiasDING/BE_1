@@ -278,7 +278,8 @@ k = 100, accuracy = 0.263000
     ylabel('Cross-validation accuracy')
     hold off;
 **The expected results**:
-![](https://drive.google.com/open?id=0BzK-t4n-FHwFVUt5dDh2eFFjOGM)
+![](https://raw.githubusercontent.com/MatthiasDING/BE_1/master/Document/knn_cross.jpg)
+
     % # Based on the cross-validation results above, choose the best value for k,   
     % # retrain the classifier using all the training data, and test it on the test
     % # data.
