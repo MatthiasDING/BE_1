@@ -29,6 +29,9 @@ In this exercise you will implement these steps and understand the basic Image C
 
 	%We show a few examples of training images from each class.
 	show_datasets(imdb);
+
+**The expected results**:
+![](https://raw.githubusercontent.com/MatthiasDING/BE_1/master/Document/dataset.jpg)
 	
 #### section 3: Subsample the dataset and reshape the data
 
