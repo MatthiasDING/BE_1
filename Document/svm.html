@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>svm.html</title>
+  <meta name="generator" content="Haroopad 0.13.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>div.oembedall-githubrepos{border:1px solid #DDD;border-radius:4px;list-style-type:none;margin:0 0 10px;padding:8px 10px 0;font:13.34px/1.4 helvetica,arial,freesans,clean,sans-serif;width:452px;background-color:#fff}div.oembedall-githubrepos .oembedall-body{background:-moz-linear-gradient(center top,#FAFAFA,#EFEFEF);background:-webkit-gradient(linear,left top,left bottom,from(#FAFAFA),to(#EFEFEF));border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-top:1px solid #EEE;margin-left:-10px;margin-top:8px;padding:5px 10px;width:100%}div.oembedall-githubrepos h3{font-size:14px;margin:0;padding-left:18px;white-space:nowrap}div.oembedall-githubrepos p.oembedall-description{color:#444;font-size:12px;margin:0 0 3px}div.oembedall-githubrepos p.oembedall-updated-at{color:#888;font-size:11px;margin:0}div.oembedall-githubrepos ul.oembedall-repo-stats{border:none;float:right;font-size:11px;font-weight:700;padding-left:15px;position:relative;z-index:5;margin:0}div.oembedall-githubrepos ul.oembedall-repo-stats li{border:none;color:#666;display:inline-block;list-style-type:none;margin:0!important}div.oembedall-githubrepos ul.oembedall-repo-stats li a{background-color:transparent;border:none;color:#666!important;background-position:5px -2px;background-repeat:no-repeat;border-left:1px solid #DDD;display:inline-block;height:21px;line-height:21px;padding:0 5px 0 23px}div.oembedall-githubrepos ul.oembedall-repo-stats li:first-child a{border-left:medium none;margin-right:-3px}div.oembedall-githubrepos ul.oembedall-repo-stats li a:hover{background:5px -27px no-repeat #4183C4;color:#FFF!important;text-decoration:none}div.oembedall-githubrepos ul.oembedall-repo-stats li:first-child a:hover{border-bottom-left-radius:3px;border-top-left-radius:3px}ul.oembedall-repo-stats li:last-child a:hover{border-bottom-right-radius:3px;border-top-right-radius:3px}span.oembedall-closehide{background-color:#aaa;border-radius:2px;cursor:pointer;margin-right:3px}div.oembedall-container{margin-top:5px;text-align:left}.oembedall-ljuser{font-weight:700}.oembedall-ljuser img{vertical-align:bottom;border:0;padding-right:1px}.oembedall-stoqembed{border-bottom:1px dotted #999;float:left;overflow:hidden;width:730px;line-height:1;background:#FFF;color:#000;font-family:Arial,Liberation Sans,DejaVu Sans,sans-serif;font-size:80%;text-align:left;margin:0;padding:0}.oembedall-stoqembed a{color:#07C;text-decoration:none;margin:0;padding:0}.oembedall-stoqembed a:hover{text-decoration:underline}.oembedall-stoqembed a:visited{color:#4A6B82}.oembedall-stoqembed h3{font-family:Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;font-size:130%;font-weight:700;margin:0;padding:0}.oembedall-stoqembed .oembedall-reputation-score{color:#444;font-size:120%;font-weight:700;margin-right:2px}.oembedall-stoqembed .oembedall-user-info{height:35px;width:185px}.oembedall-stoqembed .oembedall-user-info .oembedall-user-gravatar32{float:left;height:32px;width:32px}.oembedall-stoqembed .oembedall-user-info .oembedall-user-details{float:left;margin-left:5px;overflow:hidden;white-space:nowrap;width:145px}.oembedall-stoqembed .oembedall-question-hyperlink{font-weight:700}.oembedall-stoqembed .oembedall-stats{background:#EEE;margin:0 0 0 7px;padding:4px 7px 6px;width:58px}.oembedall-stoqembed .oembedall-statscontainer{float:left;margin-right:8px;width:86px}.oembedall-stoqembed .oembedall-votes{color:#555;padding:0 0 7px;text-align:center}.oembedall-stoqembed .oembedall-vote-count-post{font-size:240%;color:#808185;display:block;font-weight:700}.oembedall-stoqembed .oembedall-views{color:#999;padding-top:4px;text-align:center}.oembedall-stoqembed .oembedall-status{margin-top:-3px;padding:4px 0;text-align:center;background:#75845C;color:#FFF}.oembedall-stoqembed .oembedall-status strong{color:#FFF;display:block;font-size:140%}.oembedall-stoqembed .oembedall-summary{float:left;width:635px}.oembedall-stoqembed .oembedall-excerpt{line-height:1.2;margin:0;padding:0 0 5px}.oembedall-stoqembed .oembedall-tags{float:left;line-height:18px}.oembedall-stoqembed .oembedall-tags a:hover{text-decoration:none}.oembedall-stoqembed .oembedall-post-tag{background-color:#E0EAF1;border-bottom:1px solid #3E6D8E;border-right:1px solid #7F9FB6;color:#3E6D8E;font-size:90%;line-height:2.4;margin:2px 2px 2px 0;padding:3px 4px;text-decoration:none;white-space:nowrap}.oembedall-stoqembed .oembedall-post-tag:hover{background-color:#3E6D8E;border-bottom:1px solid #37607D;border-right:1px solid #37607D;color:#E0EAF1}.oembedall-stoqembed .oembedall-fr{float:right}.oembedall-stoqembed .oembedall-statsarrow{background-image:url(http://cdn.sstatic.net/stackoverflow/img/sprites.png?v=3);background-repeat:no-repeat;overflow:hidden;background-position:0 -435px;float:right;height:13px;margin-top:12px;width:7px}.oembedall-facebook1{border:1px solid #1A3C6C;padding:0;font:13.34px/1.4 verdana;width:500px}.oembedall-facebook2{background-color:#627add}.oembedall-facebook2 a{color:#e8e8e8;text-decoration:none}.oembedall-facebookBody{background-color:#fff;vertical-align:top;padding:5px}.oembedall-facebookBody .contents{display:inline-block;width:100%}.oembedall-facebookBody div img{float:left;margin-right:5px}div.oembedall-lanyard{-webkit-box-shadow:none;-webkit-transition-delay:0s;-webkit-transition-duration:.4000000059604645s;-webkit-transition-property:width;-webkit-transition-timing-function:cubic-bezier(0.42,0,.58,1);background-attachment:scroll;background-clip:border-box;background-color:transparent;background-image:none;background-origin:padding-box;border-width:0;box-shadow:none;color:#112644;display:block;float:left;font-family:'Trebuchet MS',Trebuchet,sans-serif;font-size:16px;height:253px;line-height:19px;margin:0;max-width:none;min-height:0;outline:#112644 0;overflow-x:visible;overflow-y:visible;padding:0;position:relative;text-align:left;vertical-align:baseline;width:804px}div.oembedall-lanyard .tagline{font-size:1.5em}div.oembedall-lanyard .wrapper{overflow:hidden;clear:both}div.oembedall-lanyard .split{float:left;display:inline}div.oembedall-lanyard .prominent-place .flag:active,div.oembedall-lanyard .prominent-place .flag:focus,div.oembedall-lanyard .prominent-place .flag:hover,div.oembedall-lanyard .prominent-place .flag:link,div.oembedall-lanyard .prominent-place .flag:visited{float:left;display:block;width:48px;height:48px;position:relative;top:-5px;margin-right:10px}div.oembedall-lanyard .place-context{font-size:.889em}div.oembedall-lanyard .prominent-place .sub-place{display:block}div.oembedall-lanyard .prominent-place{font-size:1.125em;line-height:1.1em;font-weight:400}div.oembedall-lanyard .main-date{color:#8CB4E0;font-weight:700;line-height:1.1}div.oembedall-lanyard .first{width:48.57%;margin:0 0 0 2.857%}.mermaid .label{color:#333}.node circle,.node polygon,.node rect{fill:#cde498;stroke:#13540c;stroke-width:1px}.edgePath .path{stroke:green;stroke-width:1.5px}.cluster rect{fill:#cdffb2;rx:40;stroke:#6eaa49;stroke-width:1px}.cluster text{fill:#333}.actor{stroke:#13540c;fill:#cde498}text.actor{fill:#000;stroke:none}.actor-line{stroke:grey}.messageLine0{stroke-width:1.5;stroke-dasharray:"2 2";marker-end:"url(#arrowhead)";stroke:#333}.messageLine1{stroke-width:1.5;stroke-dasharray:"2 2";stroke:#333}#arrowhead{fill:#333}#crosshead path{fill:#333!important;stroke:#333!important}.messageText{fill:#333;stroke:none}.labelBox{stroke:#326932;fill:#cde498}.labelText,.loopText{fill:#000;stroke:none}.loopLine{stroke-width:2;stroke-dasharray:"2 2";marker-end:"url(#arrowhead)";stroke:#326932}.note{stroke:#6eaa49;fill:#fff5ad}.noteText{fill:#000;stroke:none;font-family:'trebuchet ms',verdana,arial;font-size:14px}.section{stroke:none;opacity:.2}.section0,.section2{fill:#6eaa49}.section1,.section3{fill:#fff;opacity:.2}.sectionTitle0,.sectionTitle1,.sectionTitle2,.sectionTitle3{fill:#333}.sectionTitle{text-anchor:start;font-size:11px;text-height:14px}.grid .tick{stroke:lightgrey;opacity:.3;shape-rendering:crispEdges}.grid path{stroke-width:0}.today{fill:none;stroke:red;stroke-width:2px}.task{stroke-width:2}.taskText{text-anchor:middle;font-size:11px}.taskTextOutsideRight{fill:#000;text-anchor:start;font-size:11px}.taskTextOutsideLeft{fill:#000;text-anchor:end;font-size:11px}.taskText0,.taskText1,.taskText2,.taskText3{fill:#fff}.task0,.task1,.task2,.task3{fill:#487e3a;stroke:#13540c}.taskTextOutside0,.taskTextOutside1,.taskTextOutside2,.taskTextOutside3{fill:#000}.active0,.active1,.active2,.active3{fill:#cde498;stroke:#13540c}.activeText0,.activeText1,.activeText2,.activeText3{fill:#000!important}.done0,.done1,.done2,.done3{stroke:grey;fill:lightgrey;stroke-width:2}.doneText0,.doneText1,.doneText2,.doneText3{fill:#000!important}.crit0,.crit1,.crit2,.crit3{stroke:#f88;fill:red;stroke-width:2}.activeCrit0,.activeCrit1,.activeCrit2,.activeCrit3{stroke:#f88;fill:#cde498;stroke-width:2}.doneCrit0,.doneCrit1,.doneCrit2,.doneCrit3{stroke:#f88;fill:lightgrey;stroke-width:2;cursor:pointer;shape-rendering:crispEdges}.activeCritText0,.activeCritText1,.activeCritText2,.activeCritText3,.doneCritText0,.doneCritText1,.doneCritText2,.doneCritText3{fill:#000!important}.titleText{text-anchor:middle;font-size:18px;fill:#000}text{font-family:'trebuchet ms',verdana,arial;font-size:14px}html{height:100%}body{margin:0!important;padding:5px 20px 26px!important;background-color:#fff;font-family:"Lucida Grande","Segoe UI","Apple SD Gothic Neo","Malgun Gothic","Lucida Sans Unicode",Helvetica,Arial,sans-serif;font-size:.9em;overflow-x:hidden;overflow-y:auto}br,h1,h2,h3,h4,h5,h6{clear:both}hr.page{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x;border:0;height:3px;padding:0}hr.underscore{border-top-style:dashed!important}body >:first-child{margin-top:0!important}img.plugin{box-shadow:0 1px 3px rgba(0,0,0,.1);border-radius:3px}iframe{border:0}figure{-webkit-margin-before:0;-webkit-margin-after:0;-webkit-margin-start:0;-webkit-margin-end:0}kbd{border:1px solid #aaa;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-moz-box-shadow:1px 2px 2px #ddd;-webkit-box-shadow:1px 2px 2px #ddd;box-shadow:1px 2px 2px #ddd;background-color:#f9f9f9;background-image:-moz-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:-o-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:-webkit-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:linear-gradient(top,#eee,#f9f9f9,#eee);padding:1px 3px;font-family:inherit;font-size:.85em}.oembeded .oembed_photo{display:inline-block}img[data-echo]{margin:25px 0;width:100px;height:100px;background:url(../img/ajax.gif) center center no-repeat #fff}.spinner{display:inline-block;width:10px;height:10px;margin-bottom:-.1em;border:2px solid rgba(0,0,0,.5);border-top-color:transparent;border-radius:100%;-webkit-animation:spin 1s infinite linear;animation:spin 1s infinite linear}.spinner:after{content:'';display:block;width:0;height:0;position:absolute;top:-6px;left:0;border:4px solid transparent;border-bottom-color:rgba(0,0,0,.5);-webkit-transform:rotate(45deg);transform:rotate(45deg)}@-webkit-keyframes spin{to{-webkit-transform:rotate(360deg)}}@keyframes spin{to{transform:rotate(360deg)}}p.toc{margin:0!important}p.toc ul{padding-left:10px}p.toc>ul{padding:10px;margin:0 10px;display:inline-block;border:1px solid #ededed;border-radius:5px}p.toc li,p.toc ul{list-style-type:none}p.toc li{width:100%;padding:0;overflow:hidden}p.toc li a::after{content:"."}p.toc li a:before{content:"• "}p.toc h5{text-transform:uppercase}p.toc .title{float:left;padding-right:3px}p.toc .number{margin:0;float:right;padding-left:3px;background:#fff;display:none}input.task-list-item{margin-left:-1.62em}.markdown{font-family:"Hiragino Sans GB","Microsoft YaHei",STHeiti,SimSun,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",'Segoe UI',AppleSDGothicNeo-Medium,'Malgun Gothic',Verdana,Tahoma,sans-serif;padding:20px}.markdown a{text-decoration:none;vertical-align:baseline}.markdown a:hover{text-decoration:underline}.markdown h1{font-size:2.2em;font-weight:700;margin:1.5em 0 1em}.markdown h2{font-size:1.8em;font-weight:700;margin:1.275em 0 .85em}.markdown h3{font-size:1.6em;font-weight:700;margin:1.125em 0 .75em}.markdown h4{font-size:1.4em;font-weight:700;margin:.99em 0 .66em}.markdown h5{font-size:1.2em;font-weight:700;margin:.855em 0 .57em}.markdown h6{font-size:1em;font-weight:700;margin:.75em 0 .5em}.markdown h1+p,.markdown h1:first-child,.markdown h2+p,.markdown h2:first-child,.markdown h3+p,.markdown h3:first-child,.markdown h4+p,.markdown h4:first-child,.markdown h5+p,.markdown h5:first-child,.markdown h6+p,.markdown h6:first-child{margin-top:0}.markdown hr{border:1px solid #ccc}.markdown p{margin:1em 0;word-wrap:break-word}.markdown ol{list-style-type:decimal}.markdown li{display:list-item;line-height:1.4em}.markdown blockquote{margin:1em 20px}.markdown blockquote>:first-child{margin-top:0}.markdown blockquote>:last-child{margin-bottom:0}.markdown blockquote cite:before{content:'\2014 \00A0'}.markdown .code{border-radius:3px;word-wrap:break-word}.markdown pre{border-radius:3px;word-wrap:break-word;border:1px solid #ccc;overflow:auto;padding:.5em}.markdown pre code{border:0;display:block}.markdown pre>code{font-family:Consolas,Inconsolata,Courier,monospace;font-weight:700;white-space:pre;margin:0}.markdown code{border-radius:3px;word-wrap:break-word;border:1px solid #ccc;padding:0 5px;margin:0 2px}.markdown img{max-width:100%}.markdown mark{color:#000;background-color:#fcf8e3}.markdown table{padding:0;border-collapse:collapse;border-spacing:0;margin-bottom:16px}.markdown table tr td,.markdown table tr th{border:1px solid #ccc;margin:0;padding:6px 13px}.markdown table tr th{font-weight:700}.markdown table tr th>:first-child{margin-top:0}.markdown table tr th>:last-child{margin-bottom:0}.markdown table tr td>:first-child{margin-top:0}.markdown table tr td>:last-child{margin-bottom:0}@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700);.haroopad{padding:20px;color:#222;font-size:15px;font-family:"Roboto Condensed",Tauri,"Hiragino Sans GB","Microsoft YaHei",STHeiti,SimSun,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",'Segoe UI',AppleSDGothicNeo-Medium,'Malgun Gothic',Verdana,Tahoma,sans-serif;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}.haroopad a{color:#3269a0}.haroopad a:hover{color:#4183c4}.haroopad h2{border-bottom:1px solid #e6e6e6}.haroopad h6{color:#777}.haroopad hr{border:1px solid #e6e6e6}.haroopad blockquote>code,.haroopad h1>code,.haroopad h2>code,.haroopad h3>code,.haroopad h4>code,.haroopad h5>code,.haroopad h6>code,.haroopad li>code,.haroopad p>code,.haroopad td>code{font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;font-size:85%;background-color:rgba(0,0,0,.02);padding:.2em .5em;border:1px solid #efefef}.haroopad pre>code{font-size:1em;letter-spacing:-1px;font-weight:700}.haroopad blockquote{border-left:4px solid #e6e6e6;padding:0 15px;color:#777}.haroopad table{background-color:#fafafa}.haroopad table tr td,.haroopad table tr th{border:1px solid #e6e6e6}.haroopad table tr:nth-child(2n){background-color:#f2f2f2}.hljs{display:block;overflow-x:auto;padding:.5em;background:#fdf6e3;color:#657b83;-webkit-text-size-adjust:none}.diff .hljs-header,.hljs-comment,.hljs-doctype,.hljs-javadoc,.hljs-pi,.lisp .hljs-string{color:#93a1a1}.css .hljs-tag,.hljs-addition,.hljs-keyword,.hljs-request,.hljs-status,.hljs-winutils,.method,.nginx .hljs-title{color:#859900}.hljs-command,.hljs-dartdoc,.hljs-hexcolor,.hljs-link_url,.hljs-number,.hljs-phpdoc,.hljs-regexp,.hljs-rules .hljs-value,.hljs-string,.hljs-tag .hljs-value,.tex .hljs-formula{color:#2aa198}.css .hljs-function,.hljs-built_in,.hljs-chunk,.hljs-decorator,.hljs-id,.hljs-identifier,.hljs-localvars,.hljs-title,.vhdl .hljs-literal{color:#268bd2}.hljs-attribute,.hljs-class .hljs-title,.hljs-constant,.hljs-link_reference,.hljs-parent,.hljs-type,.hljs-variable,.lisp .hljs-body,.smalltalk .hljs-number{color:#b58900}.css .hljs-pseudo,.diff .hljs-change,.hljs-attr_selector,.hljs-cdata,.hljs-header,.hljs-pragma,.hljs-preprocessor,.hljs-preprocessor .hljs-keyword,.hljs-shebang,.hljs-special,.hljs-subst,.hljs-symbol,.hljs-symbol .hljs-string{color:#cb4b16}.hljs-deletion,.hljs-important{color:#dc322f}.hljs-link_label{color:#6c71c4}.tex .hljs-formula{background:#eee8d5}.MathJax_Hover_Frame{border-radius:.25em;-webkit-border-radius:.25em;-moz-border-radius:.25em;-khtml-border-radius:.25em;box-shadow:0 0 15px #83A;-webkit-box-shadow:0 0 15px #83A;-moz-box-shadow:0 0 15px #83A;-khtml-box-shadow:0 0 15px #83A;border:1px solid #A6D!important;display:inline-block;position:absolute}.MathJax_Hover_Arrow{position:absolute;width:15px;height:11px;cursor:pointer}#MathJax_About{position:fixed;left:50%;width:auto;text-align:center;border:3px outset;padding:1em 2em;background-color:#DDD;color:#000;cursor:default;font-family:message-box;font-size:120%;font-style:normal;text-indent:0;text-transform:none;line-height:normal;letter-spacing:normal;word-spacing:normal;word-wrap:normal;white-space:nowrap;float:none;z-index:201;border-radius:15px;-webkit-border-radius:15px;-moz-border-radius:15px;-khtml-border-radius:15px;box-shadow:0 10px 20px gray;-webkit-box-shadow:0 10px 20px gray;-moz-box-shadow:0 10px 20px gray;-khtml-box-shadow:0 10px 20px gray;filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}.MathJax_Menu{position:absolute;background-color:#fff;color:#000;width:auto;padding:5px 0;border:1px solid #CCC;margin:0;cursor:default;font:menu;text-align:left;text-indent:0;text-transform:none;line-height:normal;letter-spacing:normal;word-spacing:normal;word-wrap:normal;white-space:nowrap;float:none;z-index:201;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;-khtml-border-radius:5px;box-shadow:0 10px 20px gray;-webkit-box-shadow:0 10px 20px gray;-moz-box-shadow:0 10px 20px gray;-khtml-box-shadow:0 10px 20px gray;filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}.MathJax_MenuItem{padding:1px 2em;background:0 0}.MathJax_MenuArrow{position:absolute;right:.5em;color:#666}.MathJax_MenuActive .MathJax_MenuArrow{color:#fff}.MathJax_MenuArrow.RTL{left:.5em;right:auto}.MathJax_MenuCheck{position:absolute;left:.7em}.MathJax_MenuCheck.RTL{right:.7em;left:auto}.MathJax_MenuRadioCheck{position:absolute;left:.7em}.MathJax_MenuRadioCheck.RTL{right:.7em;left:auto}.MathJax_MenuLabel{padding:1px 2em 3px 1.33em;font-style:italic}.MathJax_MenuRule{border-top:1px solid #DDD;margin:4px 3px}.MathJax_MenuDisabled{color:GrayText}.MathJax_MenuActive{background-color:#606872;color:#fff}.MathJax_Menu_Close{position:absolute;width:31px;height:31px;top:-15px;left:-15px}#MathJax_Zoom{position:absolute;background-color:#F0F0F0;overflow:auto;display:block;z-index:301;padding:.5em;border:1px solid #000;margin:0;font-weight:400;font-style:normal;text-align:left;text-indent:0;text-transform:none;line-height:normal;letter-spacing:normal;word-spacing:normal;word-wrap:normal;white-space:nowrap;float:none;box-shadow:5px 5px 15px #AAA;-webkit-box-shadow:5px 5px 15px #AAA;-moz-box-shadow:5px 5px 15px #AAA;-khtml-box-shadow:5px 5px 15px #AAA;filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}#MathJax_ZoomOverlay{position:absolute;left:0;top:0;z-index:300;display:inline-block;width:100%;height:100%;border:0;padding:0;margin:0;background-color:#fff;opacity:0;filter:alpha(opacity=0)}#MathJax_ZoomFrame{position:relative;display:inline-block;height:0;width:0}#MathJax_ZoomEventTrap{position:absolute;left:0;top:0;z-index:302;display:inline-block;border:0;padding:0;margin:0;background-color:#fff;opacity:0;filter:alpha(opacity=0)}.MathJax_Preview{color:#888}#MathJax_Message{position:fixed;left:1px;bottom:2px;background-color:#E6E6E6;border:1px solid #959595;margin:0;padding:2px 8px;z-index:102;color:#000;font-size:80%;width:auto;white-space:nowrap}#MathJax_MSIE_Frame{position:absolute;top:0;left:0;width:0;z-index:101;border:0;margin:0;padding:0}.MathJax_Error{color:#C00;font-style:italic}footer{position:fixed;font-size:.8em;text-align:right;bottom:0;margin-left:-25px;height:20px;width:100%}</style>
+</head>
+<body class="markdown haroopad">
+<h1 id="multiclass-support-vector-machine-exercise"><a name="multiclass-support-vector-machine-exercise" href="#multiclass-support-vector-machine-exercise"></a>Multiclass Support Vector Machine exercise</h1><p>Complete and hand in the script <strong><em>Run_svm.m</em></strong> and other functions in the folder <strong><em>./classifier/svm</em></strong>. For more details see the assignments page on the course website.</p><p>In this exercise you will:</p><ul>
+<li>implement a fully-vectorized <strong>loss function</strong> for the SVM</li><li>implement the fully-vectorized expression for its <strong>analytic gradient</strong></li><li><strong>check your implementation</strong> using numerical gradient</li><li>use a validation set to <strong>tune the learning rate and regularization</strong> strength</li><li><strong>optimize</strong> the loss function with <strong>SGD</strong></li><li><strong>visualize</strong> the final learned weights</li></ul><h4 id="section-1:-cifar-10-data-loading-and-preprocessing"><a name="section-1:-cifar-10-data-loading-and-preprocessing" href="#section-1:-cifar-10-data-loading-and-preprocessing"></a>section 1: CIFAR-10 Data Loading and Preprocessing</h4><pre><code data-origin="<pre><code>imdb = load_datasets();
+
+% As a sanity check, we print out the size of the training and test data.
+disp('Training data shape: ');
+disp(size(imdb.train_data));
+disp('Training labels shape: ');
+disp(size(imdb.train_labels));
+disp('Test data shape: ');
+disp(size(imdb.test_data));
+disp('Test labels shape: ');
+disp(size(imdb.test_labels));
+</code></pre>">imdb = load_datasets();
+
+% As a sanity check, we print out the size of the training and test data.
+disp('Training data shape: ');
+disp(size(imdb.train_data));
+disp('Training labels shape: ');
+disp(size(imdb.train_labels));
+disp('Test data shape: ');
+disp(size(imdb.test_data));
+disp('Test labels shape: ');
+disp(size(imdb.test_labels));
+</code></pre><p><strong>The expected results</strong>:<br>Training data shape:<br>       50000          32          32           3</p><p>Training labels shape:<br>       50000           1</p><p>Test data shape:<br>       10000          32          32           3</p><p>Test labels shape:<br>       10000           1</p><h4 id="section-2:-visualize-some-examples-from-the-dataset"><a name="section-2:-visualize-some-examples-from-the-dataset" href="#section-2:-visualize-some-examples-from-the-dataset"></a>section 2: Visualize some examples from the dataset</h4><p>We show a few examples of training images from each class.</p><pre><code data-origin="<pre><code>show_datasets(imdb);
+</code></pre>">show_datasets(imdb);
+</code></pre><p><strong>The expected results</strong>:<br><img src="https://raw.githubusercontent.com/MatthiasDING/BE_1/master/Document/dataset.jpg" alt=""></p><h4 id="section-3:-split-the-data-into-train,-val,-and-test-sets"><a name="section-3:-split-the-data-into-train,-val,-and-test-sets" href="#section-3:-split-the-data-into-train,-val,-and-test-sets"></a>section 3: Split the data into train, val, and test sets</h4><p>In addition we will create a small development set as a subset of the training data. we can use this for development so our code runs faster.</p><pre><code data-origin="<pre><code>imdb = split_data(imdb);
+
+disp('Training data shape: ');
+disp(size(imdb.X_train));
+disp('Training labels shape: ');
+disp(size(imdb.y_train));
+disp('Validation data shape: ');
+disp(size(imdb.X_val));
+disp('Validation labels shape: ');
+disp(size(imdb.y_val));
+disp('Test data shape: ');
+disp(size(imdb.X_test));
+disp('Test labels shape: ');
+disp(size(imdb.y_test));
+</code></pre>">imdb = split_data(imdb);
+
+disp('Training data shape: ');
+disp(size(imdb.X_train));
+disp('Training labels shape: ');
+disp(size(imdb.y_train));
+disp('Validation data shape: ');
+disp(size(imdb.X_val));
+disp('Validation labels shape: ');
+disp(size(imdb.y_val));
+disp('Test data shape: ');
+disp(size(imdb.X_test));
+disp('Test labels shape: ');
+disp(size(imdb.y_test));
+</code></pre><p><strong>The expected results</strong>:<br>Training data shape:<br>       49000          32          32           3</p><p>Training labels shape:<br>       49000           1</p><p>Validation data shape:<br>        1000          32          32           3</p><p>Validation labels shape:<br>        1000           1</p><p>Test data shape:<br>        1000          32          32           3</p><p>Test labels shape:<br>        1000           1</p><h4 id="section-4:-preprocessing:-reshape-the-image-data-into-rows"><a name="section-4:-preprocessing:-reshape-the-image-data-into-rows" href="#section-4:-preprocessing:-reshape-the-image-data-into-rows"></a>section 4: Preprocessing: reshape the image data into rows</h4><pre><code data-origin="<pre><code>imdb.X_train = reshape(imdb.X_train, size(imdb.X_train,1), []);
+imdb.X_val   = reshape(imdb.X_val,   size(imdb.X_val  ,1), []);
+imdb.X_test  = reshape(imdb.X_test,  size(imdb.X_test ,1), []);
+imdb.X_dev   = reshape(imdb.X_dev,   size(imdb.X_dev  ,1), []);
+
+% As a sanity check, print out the shapes of the data
+disp('Training data shape: ');
+disp(size(imdb.X_train));
+disp('Validation data shape: ');
+disp(size(imdb.X_val));
+disp('Test data shape: ');
+disp(size(imdb.X_test));
+disp('Dev data shape: ');
+disp(size(imdb.X_dev));
+</code></pre>">imdb.X_train = reshape(imdb.X_train, size(imdb.X_train,1), []);
+imdb.X_val   = reshape(imdb.X_val,   size(imdb.X_val  ,1), []);
+imdb.X_test  = reshape(imdb.X_test,  size(imdb.X_test ,1), []);
+imdb.X_dev   = reshape(imdb.X_dev,   size(imdb.X_dev  ,1), []);
+
+% As a sanity check, print out the shapes of the data
+disp('Training data shape: ');
+disp(size(imdb.X_train));
+disp('Validation data shape: ');
+disp(size(imdb.X_val));
+disp('Test data shape: ');
+disp(size(imdb.X_test));
+disp('Dev data shape: ');
+disp(size(imdb.X_dev));
+</code></pre><p><strong>The expected results</strong>:<br>Training data shape:<br>       49000        3072</p><p>Validation data shape:<br>        1000        3072</p><p>Test data shape:<br>        1000        3072</p><p>Dev data shape:<br>         500        3072</p><h4 id="section-5:-preprocessing:-subtract-the-mean-image"><a name="section-5:-preprocessing:-subtract-the-mean-image" href="#section-5:-preprocessing:-subtract-the-mean-image"></a>section 5: Preprocessing: subtract the mean image</h4><p><strong>First</strong>: compute the image mean based on the training data</p><pre><code data-origin="<pre><code>mean_image = mean(imdb.X_train, 1);
+disp(mean_image(1:10)); % print a few of the elements
+figure;
+imshow(uint8(reshape(mean_image, 32, 32, 3)));
+</code></pre>">mean_image = mean(imdb.X_train, 1);
+disp(mean_image(1:10)); % print a few of the elements
+figure;
+imshow(uint8(reshape(mean_image, 32, 32, 3)));
+</code></pre><p><strong>The expected results</strong>:<br>  130.6419  130.0241  129.6634  129.4197  129.1715  128.8883  128.4675  127.9940  127.4662  127.2436<br><img src="https://raw.githubusercontent.com/MatthiasDING/BE_1/master/Document/svm_mean_image.jpg" alt=""></p><p><strong>Second</strong>: subtract the mean image from train and test data</p><pre><code data-origin="<pre><code>imdb.X_train = bsxfun(@minus, imdb.X_train, mean_image);
+imdb.X_val   = bsxfun(@minus, imdb.X_val  , mean_image);
+imdb.X_test  = bsxfun(@minus, imdb.X_test , mean_image);
+imdb.X_dev   = bsxfun(@minus, imdb.X_dev  , mean_image);
+</code></pre>">imdb.X_train = bsxfun(@minus, imdb.X_train, mean_image);
+imdb.X_val   = bsxfun(@minus, imdb.X_val  , mean_image);
+imdb.X_test  = bsxfun(@minus, imdb.X_test , mean_image);
+imdb.X_dev   = bsxfun(@minus, imdb.X_dev  , mean_image);
+</code></pre><p><strong>Third</strong>: append the bias dimension of ones (i.e. bias trick) so that our SVM only has to worry about optimizing a single weight matrix W.</p><pre><code data-origin="<pre><code>imdb.X_train = cat(2, imdb.X_train, ones(size(imdb.X_train, 1), 1));
+imdb.X_val   = cat(2, imdb.X_val  , ones(size(imdb.X_val  , 1), 1));
+imdb.X_test  = cat(2, imdb.X_test , ones(size(imdb.X_test , 1), 1));
+imdb.X_dev   = cat(2, imdb.X_dev  , ones(size(imdb.X_dev  , 1), 1));
+</code></pre>">imdb.X_train = cat(2, imdb.X_train, ones(size(imdb.X_train, 1), 1));
+imdb.X_val   = cat(2, imdb.X_val  , ones(size(imdb.X_val  , 1), 1));
+imdb.X_test  = cat(2, imdb.X_test , ones(size(imdb.X_test , 1), 1));
+imdb.X_dev   = cat(2, imdb.X_dev  , ones(size(imdb.X_dev  , 1), 1));
+</code></pre><h2 id="svm-classifier"><a name="svm-classifier" href="#svm-classifier"></a>SVM Classifier</h2><p>Your code for this section will all be written inside the folder <strong>./classifier/svm</strong>.<br><strong>Step 1</strong>: As you can see, we have prefilled the function <strong><em>svm_loss_naive</em></strong> which uses for loops to evaluate the multiclass SVM loss function. </p><pre><code data-origin="<pre><code>%Evaluate the naive implementation of the loss we provided for you:
+W = randn(10, 3073) * 0.0001;
+[loss, dW] = svm_loss_naive(W, imdb.X_train, imdb.y_train, 0.00001);
+
+fprintf('loss: %f\n',loss);
+</code></pre>">%Evaluate the naive implementation of the loss we provided for you:
+W = randn(10, 3073) * 0.0001;
+[loss, dW] = svm_loss_naive(W, imdb.X_train, imdb.y_train, 0.00001);
+
+fprintf('loss: %f\n',loss);
+</code></pre><p><strong>The result (random W) looks like</strong>:<br>loss: 9.390128</p><p>The grad returned from the function above is right now all zero. Derive and implement the gradient for the SVM cost function and implement it inline inside the function <strong><em>svm_loss_naive</em></strong>. You will find it helpful to interleave your new code inside the existing function.</p><p>To check that you have correctly implemented the gradient correctly, you can numerically estimate the gradient of the loss function and compare the numeric estimate to the gradient that you computed. We have provided code that does this for you:</p><p>Once you’ve implemented the gradient, recompute it with the code below and gradient check it with the function we provided for you</p><pre><code data-origin="<pre><code>% Compute the loss and its gradient at W.
+[loss, grad] = svm_loss_naive(W, imdb.X_train, imdb.y_train, 0.0);
+</code></pre>">% Compute the loss and its gradient at W.
+[loss, grad] = svm_loss_naive(W, imdb.X_train, imdb.y_train, 0.0);
+</code></pre><p>Numerically compute the gradient along several randomly chosen dimensions, and compare them with your analytically computed gradient. The numbers should match almost exactly along all dimensions.</p><pre><code data-origin="<pre><code>f = @(x)svm_loss_naive(x, imdb.X_train, imdb.y_train, 0.0);
+grad_check_sparse(f, W, grad, 10);
+</code></pre>">f = @(x)svm_loss_naive(x, imdb.X_train, imdb.y_train, 0.0);
+grad_check_sparse(f, W, grad, 10);
+</code></pre><p><strong>The result (random W) looks like</strong>:<br>numerical: 15.958773 analytic: 15.956062, relative error: 8.492935e-05<br>numerical: 4.287074 analytic: 4.288790, relative error: 2.000480e-04<br>numerical: -4.972506 analytic: -4.974457, relative error: 1.961668e-04<br>numerical: 1.652603 analytic: 1.654120, relative error: 4.587633e-04<br>numerical: -18.316459 analytic: -18.312615, relative error: 1.049457e-04<br>numerical: 11.347319 analytic: 11.351546, relative error: 1.862250e-04<br>numerical: 5.228363 analytic: 5.228370, relative error: 7.434179e-07<br>numerical: -28.642817 analytic: -28.646421, relative error: 6.291637e-05<br>numerical: -1.875807 analytic: -1.874700, relative error: 2.950681e-04<br>numerical: 14.792061 analytic: 14.793707, relative error: 5.563963e-05</p><h4 id="question-1:"><a name="question-1:" href="#question-1:"></a>Question 1:</h4><p>It is possible that once in a while a dimension in the gradcheck will not match exactly. What could such a discrepancy be caused by? Is it a reason for concern? What is a simple example in one dimension where a gradient check could fail? Hint: the SVM loss function is not strictly speaking differentiable<br><strong>Your answer</strong>:</p><p><strong>Step 2</strong>: Next implement the function <strong><em>svm_loss_vectorized</em></strong>. For now only compute the loss, we will implement the gradient in a moment.</p><pre><code data-origin="<pre><code>tic;
+[loss_naive, ~] = svm_loss_naive(W, imdb.X_train, imdb.y_train, 0.00001);
+time = toc;
+fprintf('Naive loss: %e computed in %fs\n', loss_naive, time);
+
+tic;
+[loss_vectorized, ~] = svm_loss_vectorized(W, imdb.X_train, imdb.y_train, 0.00001);
+time = toc;
+fprintf('Vectorized loss: %e computed in %fs\n', loss_vectorized, time);
+
+%The losses should match but your vectorized implementation should be much faster.
+fprintf('difference: %f\n', loss_naive - loss_vectorized);
+</code></pre>">tic;
+[loss_naive, ~] = svm_loss_naive(W, imdb.X_train, imdb.y_train, 0.00001);
+time = toc;
+fprintf('Naive loss: %e computed in %fs\n', loss_naive, time);
+
+tic;
+[loss_vectorized, ~] = svm_loss_vectorized(W, imdb.X_train, imdb.y_train, 0.00001);
+time = toc;
+fprintf('Vectorized loss: %e computed in %fs\n', loss_vectorized, time);
+
+%The losses should match but your vectorized implementation should be much faster.
+fprintf('difference: %f\n', loss_naive - loss_vectorized);
+</code></pre><p><strong>The result (random W) looks like</strong>:<br>Naive loss: 9.390128e+00 computed in 40.616371s<br>Vectorized loss: 9.390128e+00 computed in 0.300807s<br>difference: 0.000000</p><p>Complete the implementation of <strong><em>svm_loss_vectorized</em></strong>, and compute the gradient of the loss function in a vectorized way.</p><pre><code data-origin="<pre><code>% The naive implementation and the vectorized implementation should match, but
+% the vectorized version should still be much faster.
+tic;
+[~, grad_naive] = svm_loss_naive(W, imdb.X_train, imdb.y_train, 0.00001);
+time = toc;
+fprintf('Naive loss and gradient: computed in %fs\n',time);
+
+tic;
+[~, grad_vectorized] = svm_loss_vectorized(W, imdb.X_train, imdb.y_train, 0.00001);
+time = toc;
+fprintf('Vectorized loss and gradient: computed in %fs\n', time);
+
+% The loss is a single number, so it is easy to compare the values computed
+% by the two implementations. The gradient on the other hand is a matrix, so
+% we use the Frobenius norm to compare them. 
+difference = norm(grad_naive - grad_vectorized, 'fro');
+fprintf('difference: %f\n', difference);
+</code></pre>">% The naive implementation and the vectorized implementation should match, but
+% the vectorized version should still be much faster.
+tic;
+[~, grad_naive] = svm_loss_naive(W, imdb.X_train, imdb.y_train, 0.00001);
+time = toc;
+fprintf('Naive loss and gradient: computed in %fs\n',time);
+
+tic;
+[~, grad_vectorized] = svm_loss_vectorized(W, imdb.X_train, imdb.y_train, 0.00001);
+time = toc;
+fprintf('Vectorized loss and gradient: computed in %fs\n', time);
+
+% The loss is a single number, so it is easy to compare the values computed
+% by the two implementations. The gradient on the other hand is a matrix, so
+% we use the Frobenius norm to compare them. 
+difference = norm(grad_naive - grad_vectorized, 'fro');
+fprintf('difference: %f\n', difference);
+</code></pre><p><strong>The result (random W) looks like</strong>:<br>Naive loss and gradient: computed in 40.651275s<br>Vectorized loss and gradient: computed in 0.305512s<br>difference: 0.000000</p><h2 id="stochastic-gradient-descent"><a name="stochastic-gradient-descent" href="#stochastic-gradient-descent"></a>Stochastic Gradient Descent</h2><p>We now have vectorized and efficient expressions for the loss, the gradient and our gradient matches the numerical gradient. We are therefore ready to do SGD to minimize the loss.</p><p><strong>Step 1:</strong> Now implement SGD in <strong><em>linear_svm_train()</em></strong> function and run it with the code below.</p><pre><code data-origin="<pre><code>tic;
+[model, hist] = linear_svm_train(imdb.X_train, imdb.y_train, 1e-7, 5e4, 1500, 200, 1);
+time = toc;
+fprintf('That took %fs\n', time);
+</code></pre>">tic;
+[model, hist] = linear_svm_train(imdb.X_train, imdb.y_train, 1e-7, 5e4, 1500, 200, 1);
+time = toc;
+fprintf('That took %fs\n', time);
+</code></pre><p><strong>The result looks like</strong>:<br>iteration 100 / 1500: loss 289.964267<br>iteration 200 / 1500: loss 109.307092<br>iteration 300 / 1500: loss 42.708123<br>iteration 400 / 1500: loss 18.763980<br>iteration 500 / 1500: loss 10.996310<br>iteration 600 / 1500: loss 7.378142<br>iteration 700 / 1500: loss 6.038593<br>iteration 800 / 1500: loss 5.480713<br>iteration 900 / 1500: loss 5.292395<br>iteration 1000 / 1500: loss 5.740316<br>iteration 1100 / 1500: loss 5.282647<br>iteration 1200 / 1500: loss 4.878409<br>iteration 1300 / 1500: loss 5.803949<br>iteration 1400 / 1500: loss 5.732068<br>iteration 1500 / 1500: loss 5.790276<br>That took 11.883061s</p><p>A useful debugging strategy is to plot the loss as a function of iteration number:</p><pre><code data-origin="<pre><code>figure;
+plot(loss_hist);
+xlabel('Iteration number');
+ylabel('Loss Value');
+</code></pre>">figure;
+plot(loss_hist);
+xlabel('Iteration number');
+ylabel('Loss Value');
+</code></pre><p><strong>The result looks like</strong>:<br><img src="file:///tmp/.org.chromium.Chromium.bDtsSA/null" alt=""></p><p>Write the linear_svm_predict function and evaluate the performance on both the training and validation set</p><pre><code data-origin="<pre><code>y_train_pred = linear_svm_predict(model, imdb.X_train);
+fprintf('training accuracy: %f\n', mean(imdb.y_train == y_train_pred'));
+y_val_pred = linear_svm_predict(model, imdb.X_val);
+fprintf('validation accuracy: %f\n', mean(imdb.y_val == y_val_pred'));
+</code></pre>">y_train_pred = linear_svm_predict(model, imdb.X_train);
+fprintf('training accuracy: %f\n', mean(imdb.y_train == y_train_pred'));
+y_val_pred = linear_svm_predict(model, imdb.X_val);
+fprintf('validation accuracy: %f\n', mean(imdb.y_val == y_val_pred'));
+</code></pre><p><strong>The result looks like</strong>:<br>training accuracy: 0.371265<br>validation accuracy: 0.376000</p><p><strong>Step 2:</strong> Use the validation set to tune hyperparameters (regularization strength and learning rate). You should experiment with different ranges for the learning rates and regularization strengths; if you are careful you should be able to get a classification accuracy of about 0.4 on the validation set.</p><pre><code data-origin="<pre><code>learning_rates = [1e-7, 2e-7, 3e-7, 5e-5, 8e-7];
+regularization_strengths = [1e4, 2e4, 3e4, 4e4, 5e4, 6e4, 7e4, 8e4, 1e5];
+</code></pre>">learning_rates = [1e-7, 2e-7, 3e-7, 5e-5, 8e-7];
+regularization_strengths = [1e4, 2e4, 3e4, 4e4, 5e4, 6e4, 7e4, 8e4, 1e5];
+</code></pre><p>Results is dictionary mapping tuples of the form (learning_rate, regularization_strength) to tuples of the form (training_accuracy, validation_accuracy). The accuracy is simply the fraction of data points that are correctly classified.</p><pre><code data-origin="<pre><code>results = zeros(length(learning_rates), length(regularization_strengths), 2);
+best_val = -1;   %The highest validation accuracy that we have seen so far.
+best_svm = struct(); %The LinearSVM model that achieved the highest validation rate.
+</code></pre>">results = zeros(length(learning_rates), length(regularization_strengths), 2);
+best_val = -1;   %The highest validation accuracy that we have seen so far.
+best_svm = struct(); %The LinearSVM model that achieved the highest validation rate.
+</code></pre><p><strong>Todo: now implement <em>Run_svm.m</em> to find the best hyperparameters</strong></p><pre><code data-origin="<pre><code>% ################################################################################
+% # Write code that chooses the best hyperparameters by tuning on the validation #
+% # set. For each combination of hyperparameters, train a linear SVM on the      #
+% # training set, compute its accuracy on the training and validation sets, and  #
+% # store these numbers in the results dictionary. In addition, store the best   #
+% # validation accuracy in best_val and the LinearSVM model that achieves this  #
+% # accuracy in best_svm.                                                        #
+% #                                                                              #
+% # Hint: You should use a small value for num_iters as you develop your         #
+% # validation code so that the SVMs don't take much time to train; once you are #
+% # confident that your validation code works, you should rerun the validation   #
+% # code with a larger value for num_iters.                                      #
+% ################################################################################
+
+    Your code 
+
+% ################################################################################
+% #                              END OF YOUR CODE                                #
+% ################################################################################
+</code></pre>">% ################################################################################
+% # Write code that chooses the best hyperparameters by tuning on the validation #
+% # set. For each combination of hyperparameters, train a linear SVM on the      #
+% # training set, compute its accuracy on the training and validation sets, and  #
+% # store these numbers in the results dictionary. In addition, store the best   #
+% # validation accuracy in best_val and the LinearSVM model that achieves this  #
+% # accuracy in best_svm.                                                        #
+% #                                                                              #
+% # Hint: You should use a small value for num_iters as you develop your         #
+% # validation code so that the SVMs don't take much time to train; once you are #
+% # confident that your validation code works, you should rerun the validation   #
+% # code with a larger value for num_iters.                                      #
+% ################################################################################
+
+    Your code 
+
+% ################################################################################
+% #                              END OF YOUR CODE                                #
+% ################################################################################
+</code></pre><p><strong>Print out results :</strong></p><pre><code data-origin="<pre><code>for i =1:length(learning_rates)
+    for j= 1:length(regularization_strengths)
+         fprintf('lr %e reg %e train accuracy: %f val accuracy: %f\n', ...
+             learning_rates(i), regularization_strengths(j), results(i,j,1), results(i,j,2));
+    end
+end
+fprintf('best validation accuracy achieved during cross-validation: %f\n', best_val);
+</code></pre>">for i =1:length(learning_rates)
+    for j= 1:length(regularization_strengths)
+         fprintf('lr %e reg %e train accuracy: %f val accuracy: %f\n', ...
+             learning_rates(i), regularization_strengths(j), results(i,j,1), results(i,j,2));
+    end
+end
+fprintf('best validation accuracy achieved during cross-validation: %f\n', best_val);
+</code></pre><p><strong>The result looks like</strong>:<br>lr 1.000000e-07 reg 1.000000e+04 train accuracy: 0.348122 val accuracy: 0.342000<br>lr 1.000000e-07 reg 2.000000e+04 train accuracy: 0.340898 val accuracy: 0.342000<br>lr 1.000000e-07 reg 3.000000e+04 train accuracy: 0.345163 val accuracy: 0.339000<br>lr 1.000000e-07 reg 4.000000e+04 train accuracy: 0.341673 val accuracy: 0.361000<br>lr 1.000000e-07 reg 5.000000e+04 train accuracy: 0.344000 val accuracy: 0.346000<br>lr 1.000000e-07 reg 6.000000e+04 train accuracy: 0.344102 val accuracy: 0.351000<br>lr 1.000000e-07 reg 7.000000e+04 train accuracy: 0.339551 val accuracy: 0.336000<br>lr 1.000000e-07 reg 8.000000e+04 train accuracy: 0.341571 val accuracy: 0.360000<br>lr 1.000000e-07 reg 1.000000e+05 train accuracy: 0.340143 val accuracy: 0.353000<br>lr 2.000000e-07 reg 1.000000e+04 train accuracy: 0.381959 val accuracy: 0.400000<br>lr 2.000000e-07 reg 2.000000e+04 train accuracy: 0.384020 val accuracy: 0.376000<br>lr 2.000000e-07 reg 3.000000e+04 train accuracy: 0.375571 val accuracy: 0.386000<br>lr 2.000000e-07 reg 4.000000e+04 train accuracy: 0.370857 val accuracy: 0.382000<br>lr 2.000000e-07 reg 5.000000e+04 train accuracy: 0.372224 val accuracy: 0.376000<br>lr 2.000000e-07 reg 6.000000e+04 train accuracy: 0.375714 val accuracy: 0.408000<br>lr 2.000000e-07 reg 7.000000e+04 train accuracy: 0.374714 val accuracy: 0.383000<br>lr 2.000000e-07 reg 8.000000e+04 train accuracy: 0.381571 val accuracy: 0.397000<br>lr 2.000000e-07 reg 1.000000e+05 train accuracy: 0.379000 val accuracy: 0.376000<br>lr 3.000000e-07 reg 1.000000e+04 train accuracy: 0.361449 val accuracy: 0.375000<br>lr 3.000000e-07 reg 2.000000e+04 train accuracy: 0.352612 val accuracy: 0.373000<br>lr 3.000000e-07 reg 3.000000e+04 train accuracy: 0.356612 val accuracy: 0.363000<br>lr 3.000000e-07 reg 4.000000e+04 train accuracy: 0.371714 val accuracy: 0.363000<br>lr 3.000000e-07 reg 5.000000e+04 train accuracy: 0.365592 val accuracy: 0.356000<br>lr 3.000000e-07 reg 6.000000e+04 train accuracy: 0.366367 val accuracy: 0.353000<br>lr 3.000000e-07 reg 7.000000e+04 train accuracy: 0.352531 val accuracy: 0.348000<br>lr 3.000000e-07 reg 8.000000e+04 train accuracy: 0.360143 val accuracy: 0.378000<br>lr 3.000000e-07 reg 1.000000e+05 train accuracy: 0.360041 val accuracy: 0.359000<br>lr 5.000000e-05 reg 1.000000e+04 train accuracy: 0.067816 val accuracy: 0.088000<br>lr 5.000000e-05 reg 2.000000e+04 train accuracy: 0.077122 val accuracy: 0.078000<br>lr 5.000000e-05 reg 3.000000e+04 train accuracy: 0.072939 val accuracy: 0.069000<br>lr 5.000000e-05 reg 4.000000e+04 train accuracy: 0.049367 val accuracy: 0.048000<br>lr 5.000000e-05 reg 5.000000e+04 train accuracy: 0.050245 val accuracy: 0.045000<br>lr 5.000000e-05 reg 6.000000e+04 train accuracy: 0.100980 val accuracy: 0.105000<br>lr 5.000000e-05 reg 7.000000e+04 train accuracy: 0.120878 val accuracy: 0.124000<br>lr 5.000000e-05 reg 8.000000e+04 train accuracy: 0.052204 val accuracy: 0.047000<br>lr 5.000000e-05 reg 1.000000e+05 train accuracy: 0.066714 val accuracy: 0.052000<br>lr 8.000000e-07 reg 1.000000e+04 train accuracy: 0.285490 val accuracy: 0.278000<br>lr 8.000000e-07 reg 2.000000e+04 train accuracy: 0.304000 val accuracy: 0.314000<br>lr 8.000000e-07 reg 3.000000e+04 train accuracy: 0.296286 val accuracy: 0.295000<br>lr 8.000000e-07 reg 4.000000e+04 train accuracy: 0.320184 val accuracy: 0.347000<br>lr 8.000000e-07 reg 5.000000e+04 train accuracy: 0.307612 val accuracy: 0.322000<br>lr 8.000000e-07 reg 6.000000e+04 train accuracy: 0.320510 val accuracy: 0.306000<br>lr 8.000000e-07 reg 7.000000e+04 train accuracy: 0.314388 val accuracy: 0.314000<br>lr 8.000000e-07 reg 8.000000e+04 train accuracy: 0.319143 val accuracy: 0.302000<br>lr 8.000000e-07 reg 1.000000e+05 train accuracy: 0.296122 val accuracy: 0.297000<br>best validation accuracy achieved during cross-validation: 0.408000</p><p><strong>Visualize the cross-validation results</strong></p><pre><code data-origin="<pre><code>% plot training accuracy
+[x_scatter, y_scatter] = meshgrid(log(learning_rates), log(regularization_strengths));
+x_scatter = reshape(x_scatter, 1, []);
+y_scatter = reshape(y_scatter, 1, []);
+
+figure;
+hold on;
+marker_size = 100;
+colors = reshape(results(:,:,1), 1, []);
+subplot(2, 1, 1)
+scatter(x_scatter, y_scatter, marker_size, colors, 'filled');
+colorbar();
+xlabel('log learning rate');
+ylabel('log regularization strength');
+title('CIFAR-10 training accuracy');
+
+%plot validation accuracy
+colors = reshape(results(:,:,2), 1, []);
+subplot(2, 1, 2)
+scatter(x_scatter, y_scatter, marker_size, colors, 'filled');
+colorbar();
+xlabel('log learning rate');
+ylabel('log regularization strength');
+title('CIFAR-10 validation accuracy')
+hold off;
+</code></pre>">% plot training accuracy
+[x_scatter, y_scatter] = meshgrid(log(learning_rates), log(regularization_strengths));
+x_scatter = reshape(x_scatter, 1, []);
+y_scatter = reshape(y_scatter, 1, []);
+
+figure;
+hold on;
+marker_size = 100;
+colors = reshape(results(:,:,1), 1, []);
+subplot(2, 1, 1)
+scatter(x_scatter, y_scatter, marker_size, colors, 'filled');
+colorbar();
+xlabel('log learning rate');
+ylabel('log regularization strength');
+title('CIFAR-10 training accuracy');
+
+%plot validation accuracy
+colors = reshape(results(:,:,2), 1, []);
+subplot(2, 1, 2)
+scatter(x_scatter, y_scatter, marker_size, colors, 'filled');
+colorbar();
+xlabel('log learning rate');
+ylabel('log regularization strength');
+title('CIFAR-10 validation accuracy')
+hold off;
+</code></pre><p><strong>The result looks like</strong>:<br><img src="https://raw.githubusercontent.com/MatthiasDING/BE_1/master/Document/svm_cross_valid.jpg" alt=""></p><p><strong>Evaluate the best svm on test set</strong></p><pre><code data-origin="<pre><code>y_test_pred = linear_svm_predict(best_svm, imdb.X_test);
+test_accuracy = mean(imdb.y_test == y_test_pred');
+fprintf('linear SVM on raw pixels final test set accuracy: %f\n', test_accuracy);
+</code></pre>">y_test_pred = linear_svm_predict(best_svm, imdb.X_test);
+test_accuracy = mean(imdb.y_test == y_test_pred');
+fprintf('linear SVM on raw pixels final test set accuracy: %f\n', test_accuracy);
+</code></pre><p><strong>The result looks like</strong>:<br>linear SVM on raw pixels final test set accuracy: 0.359000</p><p><strong>Visualize the learned weights for each class.</strong></p><pre><code data-origin="<pre><code>%Depending on your choice of learning rate and regularization strength, these may
+%or may not be nice to look at.
+w = best_svm.W(:,1:end-1); % strip out the bias
+w = reshape(w,10, 32, 32, 3);
+w_min = min(w(:));
+w_max = max(w(:));
+classes = imdb.class_names;
+
+figure;
+hold on;
+for i = 1:10
+  subplot(2, 5, i)    
+  % Rescale the weights to be between 0 and 255
+  wimg = 255.0 * (squeeze(w(i,:,:,:)) - w_min) / (w_max - w_min);
+  imshow(uint8(wimg));
+  axis('off');
+  title(classes{i});
+end
+</code></pre>">%Depending on your choice of learning rate and regularization strength, these may
+%or may not be nice to look at.
+w = best_svm.W(:,1:end-1); % strip out the bias
+w = reshape(w,10, 32, 32, 3);
+w_min = min(w(:));
+w_max = max(w(:));
+classes = imdb.class_names;
+
+figure;
+hold on;
+for i = 1:10
+  subplot(2, 5, i)    
+  % Rescale the weights to be between 0 and 255
+  wimg = 255.0 * (squeeze(w(i,:,:,:)) - w_min) / (w_max - w_min);
+  imshow(uint8(wimg));
+  axis('off');
+  title(classes{i});
+end
+</code></pre><p><strong>The result looks like</strong>:<br><img src="https://raw.githubusercontent.com/MatthiasDING/BE_1/master/Document/svm_weights.jpg" alt=""></p><h4 id="question-2:"><a name="question-2:" href="#question-2:"></a>Question 2:</h4><p>Describe what your visualized SVM weights look like, and offer a brief explanation for why they look they way that they do.<br><strong>Your answer:</strong> </p>
+
+<footer style="position:fixed; font-size:.8em; text-align:right; bottom:0px; margin-left:-25px; height:20px; width:100%;">generated by <a href="http://pad.haroopress.com" target="_blank">haroopad</a></footer>
+</body>
+</html>

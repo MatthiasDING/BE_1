@@ -387,7 +387,9 @@ best validation accuracy achieved during cross-validation: 0.408000
     ylabel('log regularization strength');
     title('CIFAR-10 validation accuracy')
     hold off;
-    
+**The result looks like**:
+![](https://raw.githubusercontent.com/MatthiasDING/BE_1/master/Document/svm_cross_valid.jpg)
+
 **Evaluate the best svm on test set**
 
     y_test_pred = linear_svm_predict(best_svm, imdb.X_test);
@@ -419,6 +421,7 @@ linear SVM on raw pixels final test set accuracy: 0.359000
     end
 
 **The result looks like**:
+![](https://raw.githubusercontent.com/MatthiasDING/BE_1/master/Document/svm_weights.jpg)
 
 ####Question 2:
 Describe what your visualized SVM weights look like, and offer a brief explanation for why they look they way that they do.
