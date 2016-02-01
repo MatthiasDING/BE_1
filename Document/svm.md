@@ -161,17 +161,33 @@ Numerically compute the gradient along several randomly chosen dimensions, and c
     f = @(x)svm_loss_naive(x, imdb.X_train, imdb.y_train, 0.0);
     grad_check_sparse(f, W, grad, 10);
 **The result (random W) looks like**:
-numerical: 15.958773 analytic: 15.956062, relative error: 8.492935e-05
-numerical: 4.287074 analytic: 4.288790, relative error: 2.000480e-04
-numerical: -4.972506 analytic: -4.974457, relative error: 1.961668e-04
-numerical: 1.652603 analytic: 1.654120, relative error: 4.587633e-04
-numerical: -18.316459 analytic: -18.312615, relative error: 1.049457e-04
-numerical: 11.347319 analytic: 11.351546, relative error: 1.862250e-04
-numerical: 5.228363 analytic: 5.228370, relative error: 7.434179e-07
-numerical: -28.642817 analytic: -28.646421, relative error: 6.291637e-05
-numerical: -1.875807 analytic: -1.874700, relative error: 2.950681e-04
-numerical: 14.792061 analytic: 14.793707, relative error: 5.563963e-05
+numerical: 0.909104 analytic: 0.909103, relative error: 4.420315e-08
+numerical: -0.456601 analytic: -0.456601, relative error: 1.347291e-08
+numerical: -1.821526 analytic: -1.821526, relative error: 1.782215e-08
+numerical: -1.209214 analytic: -1.209214, relative error: 3.648012e-08
+numerical: 0.945788 analytic: 0.945788, relative error: 7.806608e-09
+numerical: -1.337273 analytic: -1.337273, relative error: 7.051367e-09
+numerical: 0.161232 analytic: 0.161232, relative error: 7.258902e-08
+numerical: -1.057154 analytic: -1.057154, relative error: 4.726788e-08
+numerical: -1.268697 analytic: -1.268697, relative error: 8.034296e-09
+numerical: 0.231519 analytic: 0.231519, relative error: 2.203893e-07
 
+Do the gradient check once again with regularization turned on you didn't forget the regularization gradient did you?
+
+    f = @(x)svm_loss_naive(x, imdb.X_train, imdb.y_train, 1e2);
+    grad_check_sparse(f, W, grad, 10);
+
+**The result (random W) looks like**:
+numerical: 2.822595 analytic: 2.825631, relative error: 5.375324e-04
+numerical: -3.377733 analytic: -3.369572, relative error: 1.209526e-03
+numerical: 0.228919 analytic: 0.217673, relative error: 2.518286e-02
+numerical: 4.473230 analytic: 4.479649, relative error: 7.169656e-04
+numerical: 0.776112 analytic: 0.773036, relative error: 1.985387e-03
+numerical: 3.098687 analytic: 3.106507, relative error: 1.260129e-03
+numerical: 0.963028 analytic: 0.966172, relative error: 1.629399e-03
+numerical: -0.099664 analytic: -0.118163, relative error: 8.492500e-02
+numerical: -1.977065 analytic: -1.987397, relative error: 2.606005e-03
+numerical: 0.145323 analytic: 0.141235, relative error: 1.426644e-02
 
 #### Question 1: 
 It is possible that once in a while a dimension in the gradcheck will not match exactly. What could such a discrepancy be caused by? Is it a reason for concern? What is a simple example in one dimension where a gradient check could fail? Hint: the SVM loss function is not strictly speaking differentiable

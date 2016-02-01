@@ -188,3 +188,4 @@ Visualize the learned weights for each class.
       title(classes{i});
     end
 **The expected results**:
+![](https://raw.githubusercontent.com/MatthiasDING/BE_1/master/Document/softmax_weights.jpg)
