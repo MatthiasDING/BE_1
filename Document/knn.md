@@ -1,6 +1,6 @@
 # k-Nearest Neighbor (kNN) exercise
 
-Complete and run *Run_knn.m* in this exercise.You could run this script section by section. For more details see the assignments page on the course website.
+Complete and run **Run_knn.m** in this exercise.You could run this script section by section. For more details see the assignments page on the course website.
 
 The kNN classifier consists of two stages:
 
@@ -10,7 +10,7 @@ The kNN classifier consists of two stages:
   
 In this exercise you will implement these steps and understand the basic Image Classification pipeline, cross-validation, and gain proficiency in writing efficient, vectorized code.
 
-#### section 1: Load database and check its dimensions
+#### Section 1: Load database and check its dimensions
 
 	%% Load the raw CIFAR-10 data.
 	imdb = load_datasets();
@@ -25,7 +25,7 @@ In this exercise you will implement these steps and understand the basic Image C
 	disp('Test labels shape: ');
 	disp(size(imdb.test_labels));
 	
-#### section 2: Visualize some examples from the dataset
+#### Section 2: Visualize some examples from the dataset
 
 	%We show a few examples of training images from each class.
 	show_datasets(imdb);
@@ -33,7 +33,7 @@ In this exercise you will implement these steps and understand the basic Image C
 **The expected results**:
 ![](https://raw.githubusercontent.com/MatthiasDING/BE_1/master/Document/dataset.jpg)
 	
-#### section 3: Subsample the dataset and reshape the data
+#### Section 3: Subsample the dataset and reshape the data
 
 	%% Subsample the data for more efficient code execution in this exercise
 	imdb = subsample_datasets(imdb);
@@ -51,7 +51,7 @@ In this exercise you will implement these steps and understand the basic Image C
     disp('Test labels shape: ');
     disp(size(imdb.test_labels));
     
-#### section 4: Call *knn_train* to create a knn classifier model
+#### Section 4: Call ***knn_train*** to create a knn classifier model
 
 	% Remember that training a kNN classifier is a noop: 
 	% the Classifier simply remembers the data and does no further processing 
@@ -64,17 +64,18 @@ We would now like to classify the test data with the kNN classifier. Recall that
 
 Lets begin with computing the distance matrix between all training and test examples. For example, if there are Ntr training examples and Nte test examples, this stage should result in a Nte x Ntr matrix where each element (i,j) is the distance between the i-th test and j-th train example.
 
-First, open  *classifier/knn/knn_compute_distances_two_loops.m* that uses a (very inefficient) double loop over all pairs of (test, train) examples and computes the distance matrix one element at a time.
+First, open  **./classifier/knn/knn_compute_distances_two_loops.m** that uses a (very inefficient) double loop over all pairs of (test, train) examples and computes the distance matrix one element at a time.
 
 
-#### section 5: Todo: open *classifier/knn/knn_compute_distances_two_loops.m* and implement it
+#### Section 5: Todo: open *./classifier/knn/knn_compute_distances_two_loops.m* and implement it
 
 	%Test your implementation:
 	dists_two = knn_compute_distances_two_loops(model, imdb.test_data);
 	disp(size(dists_two))
-**The expected results**: 500 5000
+**The expected results**: 
+500 5000
 	
-#### section 6: Todo: now implement the function *knn_predict_labels.m* and run the code below:
+#### Section 6: Todo: now implement the function *knn_predict_labels.m* and run the code below:
 
 	% We use k = 1 (which is Nearest Neighbor).
 	k = 1;
@@ -88,7 +89,7 @@ First, open  *classifier/knn/knn_compute_distances_two_loops.m* that uses a (ver
 Got 137 / 500 correct => accuracy: 0.274000
 You should expect to see approximately 27% accuracy.
 
-####section 7: Now lets try out a larger k, say k = 5:
+####Section 7: Now lets try out a larger k, say k = 5:
 
 	k = 5;
 	test_labels_pred = knn_predict_labels(model, dists_two, k);
@@ -102,7 +103,7 @@ You should expect to see approximately 27% accuracy.
 Got 139 / 500 correct => accuracy: 0.278000
 You should expect to see a slightly better performance than with k = 1.
 	
-####section 8: Now lets speed up distance matrix computation by using partial vectorization with one loop. Implement the function *knn_compute_distances_one_loop.m* and run the code below:
+####Section 8: Now lets speed up distance matrix computation by using partial vectorization with one loop. Implement the function *knn_compute_distances_one_loop.m* and run the code below:
 
 	dists_one = knn_compute_distances_one_loops(model, imdb.test_data);
 
@@ -125,7 +126,7 @@ Difference was: 0.000000
 Good! The distance matrices are the same
 
 
-####section 9: Now implement the fully vectorized version inside *knn_compute_distances_no_loops.m* and run the code
+####Section 9: Now implement the fully vectorized version inside *knn_compute_distances_no_loops.m* and run the code
 
 	dists_no = knn_compute_distances_no_loops(model, imdb.test_data);
 
@@ -141,7 +142,7 @@ Good! The distance matrices are the same
 Difference was: 0.000000
 Good! The distance matrices are the same
 
-####section 10: Let's compare how fast the implementations are
+####Section 10: Let's compare how fast the implementations are
     tic;
     knn_compute_distances_two_loops(model, imdb.test_data);
     two_loop_time = toc;
@@ -164,7 +165,7 @@ One loop version took 23.783070 seconds
 No loop version took 0.353753 seconds
 you should see significantly faster performance with the fully vectorized implementation
     
-####section 11: Cross-validation
+####Section 11: Cross-validation
 We have implemented the k-Nearest Neighbor classifier but we set the value k = 5 arbitrarily. We will now determine the best value of this hyperparameter with cross-validation.
 
 	num_folds = 5;
@@ -213,8 +214,7 @@ We have implemented the k-Nearest Neighbor classifier but we set the value k = 5
         for i = 1:size(k_to_accuracies, 2)
             fprintf('k = %d, accuracy = %f\n',k_choices(k), k_to_accuracies(k, i));
         end
-    end
-	
+    end	
 **The expected results**:
 k = 1, accuracy = 0.263000
 k = 1, accuracy = 0.257000
@@ -267,7 +267,8 @@ k = 100, accuracy = 0.263000
 k = 100, accuracy = 0.256000
 k = 100, accuracy = 0.263000
 
-    % # plot the raw observations
+Plot the raw observations
+
     figure;
     hold on;
     for k = 1:length(k_choices)
@@ -283,9 +284,8 @@ k = 100, accuracy = 0.263000
 **The expected results**:
 ![](https://raw.githubusercontent.com/MatthiasDING/BE_1/master/Document/knn_cross.jpg)
 
-    % # Based on the cross-validation results above, choose the best value for k,   
-    % # retrain the classifier using all the training data, and test it on the test
-    % # data.
+Based on the cross-validation results above, choose the best value for k, retrain the classifier using all the training data, and test it on the test data.
+
     best_k = 6;
     model = knn_train(imdb.train_data, imdb.train_labels);
     labels_pred = knn_predict(model, imdb.test_data, best_k);

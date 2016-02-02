@@ -178,9 +178,89 @@ To train our network we will use SGD with momentum. In addition, we will adjust 
     %Predict on the validation set
     val_acc = mean(twolayernet_predict(model, imdb.X_val) == imdb.y_val');
     fprintf('Validation accuracy: %f\n', val_acc);
+**The expected results:**
+Validation accuracy: 0.292000
+
 ## Debug the training
 With the default parameters we provided above, you should get a validation accuracy of about 0.29 on the validation set. This isn't very good.
 
 One strategy for getting insight into what's wrong is to plot the loss function and the accuracies on the training and validation sets during optimization.
 
 Another strategy is to visualize the weights that were learned in the first layer of the network. In most neural networks trained on visual data, the first layer weights typically show some visible structure when visualized.
+
+    %Plot the loss function and train / validation accuracies
+    figure;
+    subplot(2, 1, 1);
+    plot(stats.loss_history);
+    title('Loss history');
+    xlabel('Iteration');
+    ylabel('Loss');
+
+    subplot(2, 1, 2);
+    hold on;
+    plot(stats.train_acc_history);
+    plot(stats.val_acc_history);
+    legend('Train', 'Val');
+    title('Classification accuracy history');
+    xlabel('Epoch');
+    ylabel('Clasification accuracy');
+    hold off;
+    
+**The expected results:**
+![](https://raw.githubusercontent.com/MatthiasDING/BE_1/master/Document/twolayernet_valloss.jpg)
+
+    %% Visualize the weights of the network
+    function []= show_net_weights(model)
+        W1 = reshape(model.W1', [], 32, 32, 3);
+        grid = visualize_grid(W1);
+        figure;
+        imshow(uint8(grid));
+    end
+    show_net_weights(model);
+    
+**The expected results:**    
+![](https://raw.githubusercontent.com/MatthiasDING/BE_1/master/Document/twolayernet_weights.jpg)
+
+## Tune your hyperparameters
+
+**What's wrong?**. Looking at the visualizations above, we see that the loss is decreasing more or less linearly, which seems to suggest that the learning rate may be too low. Moreover, there is no gap between the training and validation accuracy, suggesting that the model we used has low capacity, and that we should increase its size. On the other hand, with a very large model we would expect to see more overfitting, which would manifest itself as a very large gap between the training and validation accuracy.
+
+**Tuning**. Tuning the hyperparameters and developing intuition for how they affect the final performance is a large part of using Neural Networks, so we want you to get a lot of practice. Below, you should experiment with different values of the various hyperparameters, including hidden layer size, learning rate, numer of training epochs, and regularization strength. You might also consider tuning the learning rate decay, but you should be able to get good performance using the default value.
+
+**Approximate results**. You should be aim to achieve a classification accuracy of greater than 48% on the validation set. Our best network gets over 52% on the validation set.
+
+**Experiment**: You goal in this exercise is to get as good of a result on CIFAR-10 as you can, with a fully-connected Neural Network. For every 1% above 52% on the Test set we will award you with one extra bonus point. Feel free implement your own techniques (e.g. PCA to reduce dimensionality, or adding dropout, or adding features to the solver, etc.).
+
+    best_net = None # store the best model into this 
+
+    #################################################################################
+    # TODO: Tune hyperparameters using the validation set. Store your best trained  #
+    # model in best_net.                                                            #
+    #                                                                               #
+    # To help debug your network, it may help to use visualizations similar to the  #
+    # ones we used above; these visualizations will have significant qualitative    #
+    # differences from the ones we saw above for the poorly tuned network.          #
+    #                                                                               #
+    # Tweaking hyperparameters by hand can be fun, but you might find it useful to  #
+    # write code to sweep through possible combinations of hyperparameters          #
+    # automatically like we did on the previous exercises.                          #
+    #################################################################################
+    pass
+    #################################################################################
+    #                               END OF YOUR CODE                                #
+    #################################################################################
+    
+
+    %%  visualize the weights of the best network
+    show_net_weights(best_net);
+    
+**The expected results:**   
+
+## Run on the test set
+When you are done experimenting, you should evaluate your final trained network on the test set; you should get above 48%.
+
+**We will give you extra bonus point for every 1% of accuracy above 52%.**
+
+        %% Run on the test set
+        test_acc = mean(twolayernet_predict(model, imdb.X_test) == imdb.y_test');
+        fprintf('Test accuracy: %f\n', test_acc);
